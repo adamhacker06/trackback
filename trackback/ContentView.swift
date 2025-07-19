@@ -17,9 +17,27 @@ struct ContentView: View {
     
     var body: some View {
         
-        VStack {
-            Text("hello")
+        VStack(spacing: 20) {
+            
+            if spotifyController.isAuthorized {
+                
+                Text("Logged in to Spotify")
+                Text("Access token: \(spotifyController.accessToken ?? "N/A")")
+                Button("Log Out") {
+                    spotifyController.disconnect()
+                }
+                
+            } else {
+                
+                Text("Welcome to Trackback")
+                Button("Connect to Spotify") {
+                    spotifyController.connect()
+                }
+                
+            }
+            
         }
+        .padding()
         
     }
     
@@ -42,4 +60,5 @@ struct ContentView: View {
 #Preview {
     ContentView()
         .modelContainer(for: Item.self, inMemory: true)
+        .environmentObject(SpotifyController())
 }

@@ -11,8 +11,8 @@ import SpotifyiOS
 
 class SpotifyController: NSObject, ObservableObject {
     
-    let spotifyClientID: String = ""
-    let spotifyRedirectURL: URL = URL(string: "")!
+    let spotifyClientID: String = "fdf948a35a774fdeaeec466970b25b9c"
+    let spotifyRedirectURL: URL = URL(string: "trackback://spotify-login-callback/")!
     
     @Published var accessToken: String?
     @Published var isAuthorized: Bool = false
@@ -32,6 +32,8 @@ class SpotifyController: NSObject, ObservableObject {
         self.sessionManager = SPTSessionManager(configuration: configuration, delegate: self)
         
         let scopes: SPTScope = [.userReadEmail, .userReadPrivate, .userTopRead, .playlistReadPrivate, .streaming]
+        
+        sessionManager?.initiateSession(with: scopes, options: .default, campaign: Bundle.main.bundleIdentifier ?? "trackback-app")
         
     }
     
@@ -54,14 +56,22 @@ class SpotifyController: NSObject, ObservableObject {
 extension SpotifyController: SPTSessionManagerDelegate {
     
     func sessionManager(manager: SPTSessionManager, didInitiate session: SPTSession) {
-        print("SUCCESS: Session initatied")
-        self.accessToken = session.accessToken
-        self.isAuthorized = true
+        
+        DispatchQueue.main.async {
+            print("SUCCESS: Session initatied")
+            self.accessToken = session.accessToken
+            self.isAuthorized = true
+        }
+        
     }
     
     func sessionManager(manager: SPTSessionManager, didFailWith error: any Error) {
-        print("FAILURE: Session failed to initiatie: \(error.localizedDescription)")
-        self.isAuthorized = false
+        
+        DispatchQueue.main.async {
+            print("FAILURE: Session failed to initiatie: \(error.localizedDescription)")
+            self.isAuthorized = false
+        }
+        
     }
     
 }
