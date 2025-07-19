@@ -16,6 +16,9 @@ let supabase = SupabaseClient(
 
 @main
 struct trackbackApp: App {
+    
+    @StateObject private var spotifyController = SpotifyController()
+    
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
@@ -32,6 +35,10 @@ struct trackbackApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(spotifyController)
+                .onOpenURL(perform: { url in
+                    spotifyController.handleURL(url)
+                })
         }
         .modelContainer(sharedModelContainer)
     }

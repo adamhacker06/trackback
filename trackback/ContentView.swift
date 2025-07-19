@@ -9,43 +9,18 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
+    
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
 
-    @State private var songs: [Song] = []
+    @EnvironmentObject var spotifyController: SpotifyController
     
     var body: some View {
         
-        NavigationStack {
-            
-            List(songs) { song in
-                VStack {
-                    Text(song.name)
-                    Text(song.createdAt.description)
-                    Text(song.id.description)
-                }
-            }
-            .task {
-                await fetchSongs()
-            }
-            
+        VStack {
+            Text("hello")
         }
         
-    }
-
-    private func fetchSongs() async {
-        do {
-            let response: [Song] = try await supabase
-                .from("Songs")
-                .select()
-                .execute()
-                .value
-            
-            self.songs = response
-        }
-        catch {
-            print("Error with fetching songs")
-        }
     }
     
     private func addItem() {
