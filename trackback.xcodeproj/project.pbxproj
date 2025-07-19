@@ -12,6 +12,11 @@
 		E07B47BD2E2C2C060086329A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B47BC2E2C2C060086329A /* Item.swift */; };
 		E07B47BF2E2C2C070086329A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E07B47BE2E2C2C070086329A /* Assets.xcassets */; };
 		E07B47C22E2C2C070086329A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E07B47C12E2C2C070086329A /* Preview Assets.xcassets */; };
+		E07B47CA2E2C35F10086329A /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = E07B47C92E2C35F10086329A /* Auth */; };
+		E07B47CC2E2C35F10086329A /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = E07B47CB2E2C35F10086329A /* PostgREST */; };
+		E07B47CE2E2C35F10086329A /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = E07B47CD2E2C35F10086329A /* Supabase */; };
+		E07B47D12E2C373B0086329A /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B47D02E2C373B0086329A /* Song.swift */; };
+		E08C68DF2E2C438900BF215C /* SpotifyiOS in Frameworks */ = {isa = PBXBuildFile; productRef = E08C68DE2E2C438900BF215C /* SpotifyiOS */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +26,7 @@
 		E07B47BC2E2C2C060086329A /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		E07B47BE2E2C2C070086329A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E07B47C12E2C2C070086329A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E07B47D02E2C373B0086329A /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +34,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E07B47CC2E2C35F10086329A /* PostgREST in Frameworks */,
+				E07B47CA2E2C35F10086329A /* Auth in Frameworks */,
+				E07B47CE2E2C35F10086329A /* Supabase in Frameworks */,
+				E08C68DF2E2C438900BF215C /* SpotifyiOS in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +63,7 @@
 		E07B47B72E2C2C060086329A /* trackback */ = {
 			isa = PBXGroup;
 			children = (
+				E07B47CF2E2C372D0086329A /* Models */,
 				E07B47B82E2C2C060086329A /* trackbackApp.swift */,
 				E07B47BA2E2C2C060086329A /* ContentView.swift */,
 				E07B47BC2E2C2C060086329A /* Item.swift */,
@@ -68,6 +79,14 @@
 				E07B47C12E2C2C070086329A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E07B47CF2E2C372D0086329A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E07B47D02E2C373B0086329A /* Song.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,6 +105,12 @@
 			dependencies = (
 			);
 			name = trackback;
+			packageProductDependencies = (
+				E07B47C92E2C35F10086329A /* Auth */,
+				E07B47CB2E2C35F10086329A /* PostgREST */,
+				E07B47CD2E2C35F10086329A /* Supabase */,
+				E08C68DE2E2C438900BF215C /* SpotifyiOS */,
+			);
 			productName = trackback;
 			productReference = E07B47B52E2C2C060086329A /* trackback.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +139,10 @@
 				Base,
 			);
 			mainGroup = E07B47AC2E2C2C060086329A;
+			packageReferences = (
+				E07B47C82E2C34700086329A /* XCRemoteSwiftPackageReference "supabase-swift" */,
+				E08C68DD2E2C438900BF215C /* XCRemoteSwiftPackageReference "ios-sdk" */,
+			);
 			productRefGroup = E07B47B62E2C2C060086329A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -140,6 +169,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E07B47D12E2C373B0086329A /* Song.swift in Sources */,
 				E07B47BB2E2C2C060086329A /* ContentView.swift in Sources */,
 				E07B47BD2E2C2C060086329A /* Item.swift in Sources */,
 				E07B47B92E2C2C060086329A /* trackbackApp.swift in Sources */,
@@ -348,6 +378,48 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E07B47C82E2C34700086329A /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.1;
+			};
+		};
+		E08C68DD2E2C438900BF215C /* XCRemoteSwiftPackageReference "ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/spotify/ios-sdk.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E07B47C92E2C35F10086329A /* Auth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E07B47C82E2C34700086329A /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Auth;
+		};
+		E07B47CB2E2C35F10086329A /* PostgREST */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E07B47C82E2C34700086329A /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = PostgREST;
+		};
+		E07B47CD2E2C35F10086329A /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E07B47C82E2C34700086329A /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+		E08C68DE2E2C438900BF215C /* SpotifyiOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E08C68DD2E2C438900BF215C /* XCRemoteSwiftPackageReference "ios-sdk" */;
+			productName = SpotifyiOS;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E07B47AD2E2C2C060086329A /* Project object */;
 }

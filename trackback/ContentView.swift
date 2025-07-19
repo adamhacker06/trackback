@@ -12,33 +12,42 @@ struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
 
+    @State private var songs: [Song] = []
+    
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-                    }
-                }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
+        
+        NavigationStack {
+            
+            List(songs) { song in
+                VStack {
+                    Text(song.name)
+                    Text(song.createdAt.description)
+                    Text(song.id.description)
                 }
             }
-        } detail: {
-            Text("Select an item")
+            .task {
+                await fetchSongs()
+            }
+            
         }
+        
     }
 
+    private func fetchSongs() async {
+        do {
+            let response: [Song] = try await supabase
+                .from("Songs")
+                .select()
+                .execute()
+                .value
+            
+            self.songs = response
+        }
+        catch {
+            print("Error with fetching songs")
+        }
+    }
+    
     private func addItem() {
         withAnimation {
             let newItem = Item(timestamp: Date())

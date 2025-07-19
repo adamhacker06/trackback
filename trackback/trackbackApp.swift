@@ -7,6 +7,12 @@
 
 import SwiftUI
 import SwiftData
+import Supabase
+
+let supabase = SupabaseClient(
+    supabaseURL: URL(string: "https://tixhokkamvoyzlihvtoo.supabase.co")!,
+    supabaseKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRpeGhva2thbXZveXpsaWh2dG9vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI5NTI0ODksImV4cCI6MjA2ODUyODQ4OX0.kAfF9ES_0kCpCz_uInwjpkc9bh6oQ8FQcURUNiPn85k"
+)
 
 @main
 struct trackbackApp: App {
