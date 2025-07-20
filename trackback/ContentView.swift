@@ -14,30 +14,47 @@ struct ContentView: View {
     @Query private var items: [Item]
 
     @EnvironmentObject var spotifyController: SpotifyController
+    @State var testData: String = ""
     
     var body: some View {
         
-        VStack(spacing: 20) {
-            
-            if spotifyController.isAuthorized {
+        ScrollView {
+            VStack(spacing: 20) {
                 
-                Text("Logged in to Spotify")
-                Text("Access token: \(spotifyController.accessToken ?? "N/A")")
-                Button("Log Out") {
-                    spotifyController.disconnect()
-                }
-                
-            } else {
-                
-                Text("Welcome to Trackback")
-                Button("Connect to Spotify") {
-                    spotifyController.connect()
+                if spotifyController.isAuthorized {
+                    
+                    Text("Logged in to Spotify")
+                    Text("Access token: \(spotifyController.accessToken ?? "N/A")")
+                    Text(testData)
+                        .textSelection(.enabled)
+                    Button("Fetch") {
+                        SpotifyAPIService.api.fetchRecentlyPlayed(accessToken: spotifyController.accessToken ?? "") { result in
+                            
+                            switch result {
+                            case .success(let success):
+                                testData = success[0]
+                            case .failure(let failure):
+                                print("Error fetching: \(failure.localizedDescription)")
+                            }
+                            
+                        }
+                    }
+                    Button("Log Out") {
+                        spotifyController.disconnect()
+                    }
+                    
+                } else {
+                    
+                    Text("Welcome to Trackback")
+                    Button("Connect to Spotify") {
+                        spotifyController.connect()
+                    }
+                    
                 }
                 
             }
-            
+            .padding()
         }
-        .padding()
         
     }
     

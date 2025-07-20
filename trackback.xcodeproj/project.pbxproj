@@ -19,6 +19,7 @@
 		E08C68DF2E2C438900BF215C /* SpotifyiOS in Frameworks */ = {isa = PBXBuildFile; productRef = E08C68DE2E2C438900BF215C /* SpotifyiOS */; };
 		E08C68E32E2C488400BF215C /* SpotifyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C68E22E2C488400BF215C /* SpotifyController.swift */; };
 		E08C68E62E2C4FE100BF215C /* SongListTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C68E52E2C4FE100BF215C /* SongListTestView.swift */; };
+		E08C68E92E2C8EB600BF215C /* SpotifyAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C68E82E2C8EB600BF215C /* SpotifyAPIService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		E08C68E02E2C47AE00BF215C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E08C68E22E2C488400BF215C /* SpotifyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyController.swift; sourceTree = "<group>"; };
 		E08C68E52E2C4FE100BF215C /* SongListTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListTestView.swift; sourceTree = "<group>"; };
+		E08C68E82E2C8EB600BF215C /* SpotifyAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAPIService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				E08C68E02E2C47AE00BF215C /* Info.plist */,
 				E08C68E12E2C487800BF215C /* Controllers */,
 				E07B47CF2E2C372D0086329A /* Models */,
+				E08C68E72E2C8E8A00BF215C /* Services */,
 				E08C68E42E2C4FCB00BF215C /* Views */,
 				E07B47B82E2C2C060086329A /* trackbackApp.swift */,
 				E07B47BA2E2C2C060086329A /* ContentView.swift */,
@@ -111,6 +114,14 @@
 				E08C68E52E2C4FE100BF215C /* SongListTestView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		E08C68E72E2C8E8A00BF215C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E08C68E82E2C8EB600BF215C /* SpotifyAPIService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +210,7 @@
 				E07B47BD2E2C2C060086329A /* Item.swift in Sources */,
 				E07B47B92E2C2C060086329A /* trackbackApp.swift in Sources */,
 				E08C68E32E2C488400BF215C /* SpotifyController.swift in Sources */,
+				E08C68E92E2C8EB600BF215C /* SpotifyAPIService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

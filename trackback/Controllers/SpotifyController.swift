@@ -31,7 +31,7 @@ class SpotifyController: NSObject, ObservableObject {
         configuration.playURI = ""
         self.sessionManager = SPTSessionManager(configuration: configuration, delegate: self)
         
-        let scopes: SPTScope = [.userReadEmail, .userReadPrivate, .userTopRead, .playlistReadPrivate, .streaming]
+        let scopes: SPTScope = [.userReadEmail, .userReadPrivate, .userTopRead, .playlistReadPrivate, .streaming, .userReadRecentlyPlayed]
         
         sessionManager?.initiateSession(with: scopes, options: .default, campaign: Bundle.main.bundleIdentifier ?? "trackback-app")
         
@@ -73,7 +73,7 @@ extension SpotifyController: SPTSessionManagerDelegate {
         }
         
     }
-    
+
 }
 
 extension SpotifyController: SPTAppRemoteDelegate {
