@@ -15,8 +15,11 @@
 		E07B47CA2E2C35F10086329A /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = E07B47C92E2C35F10086329A /* Auth */; };
 		E07B47CC2E2C35F10086329A /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = E07B47CB2E2C35F10086329A /* PostgREST */; };
 		E07B47CE2E2C35F10086329A /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = E07B47CD2E2C35F10086329A /* Supabase */; };
-		E07B47D12E2C373B0086329A /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B47D02E2C373B0086329A /* Song.swift */; };
+		E07B47D12E2C373B0086329A /* SongDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B47D02E2C373B0086329A /* SongDTO.swift */; };
 		E08C68DF2E2C438900BF215C /* SpotifyiOS in Frameworks */ = {isa = PBXBuildFile; productRef = E08C68DE2E2C438900BF215C /* SpotifyiOS */; };
+		E08C68EC2E2CA0CB00BF215C /* EventDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C68EB2E2CA0CB00BF215C /* EventDTO.swift */; };
+		E08C68EE2E2CA0FC00BF215C /* ProfileDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C68ED2E2CA0FC00BF215C /* ProfileDTO.swift */; };
+		E08C68F02E2CA1C300BF215C /* EventPlayDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C68EF2E2CA1C300BF215C /* EventPlayDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,7 +29,10 @@
 		E07B47BC2E2C2C060086329A /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		E07B47BE2E2C2C070086329A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E07B47C12E2C2C070086329A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		E07B47D02E2C373B0086329A /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		E07B47D02E2C373B0086329A /* SongDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDTO.swift; sourceTree = "<group>"; };
+		E08C68EB2E2CA0CB00BF215C /* EventDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDTO.swift; sourceTree = "<group>"; };
+		E08C68ED2E2CA0FC00BF215C /* ProfileDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDTO.swift; sourceTree = "<group>"; };
+		E08C68EF2E2CA1C300BF215C /* EventPlayDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPlayDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,9 +90,20 @@
 		E07B47CF2E2C372D0086329A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E07B47D02E2C373B0086329A /* Song.swift */,
+				E08C68EA2E2CA09C00BF215C /* DTOs */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		E08C68EA2E2CA09C00BF215C /* DTOs */ = {
+			isa = PBXGroup;
+			children = (
+				E07B47D02E2C373B0086329A /* SongDTO.swift */,
+				E08C68EB2E2CA0CB00BF215C /* EventDTO.swift */,
+				E08C68ED2E2CA0FC00BF215C /* ProfileDTO.swift */,
+				E08C68EF2E2CA1C300BF215C /* EventPlayDTO.swift */,
+			);
+			path = DTOs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,7 +186,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E07B47D12E2C373B0086329A /* Song.swift in Sources */,
+				E08C68EE2E2CA0FC00BF215C /* ProfileDTO.swift in Sources */,
+				E08C68F02E2CA1C300BF215C /* EventPlayDTO.swift in Sources */,
+				E07B47D12E2C373B0086329A /* SongDTO.swift in Sources */,
+				E08C68EC2E2CA0CB00BF215C /* EventDTO.swift in Sources */,
 				E07B47BB2E2C2C060086329A /* ContentView.swift in Sources */,
 				E07B47BD2E2C2C060086329A /* Item.swift in Sources */,
 				E07B47B92E2C2C060086329A /* trackbackApp.swift in Sources */,

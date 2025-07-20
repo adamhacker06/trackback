@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Song: Identifiable, Codable {
+struct SongDTO: Identifiable, Codable {
     let id: Int
     let createdAt: Date
     let name: String

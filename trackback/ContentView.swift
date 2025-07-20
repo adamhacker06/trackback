@@ -12,7 +12,7 @@ struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
 
-    @State private var songs: [Song] = []
+    @State private var songs: [SongDTO] = []
     
     var body: some View {
         
@@ -35,7 +35,7 @@ struct ContentView: View {
 
     private func fetchSongs() async {
         do {
-            let response: [Song] = try await supabase
+            let response: [SongDTO] = try await supabase
                 .from("Songs")
                 .select()
                 .execute()
